@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "apucarana",
+    "database": "db_pdoaluno-development",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "apucarana",
+    "database": "db_pdoaluno-tests",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "apucarana",
+    "database": "db_pdoaluno-production",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
