@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       preco: {
-        type: Sequelize.NUMBER
+        type: Sequelize.FLOAT
       },
       categoria: {
         type: Sequelize.STRING

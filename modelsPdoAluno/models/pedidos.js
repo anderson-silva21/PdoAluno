@@ -14,9 +14,20 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Pedidos.init({
+    
     data: DataTypes.DATE,
-    valor: DataTypes.NUMBER,
-    formaPagamento: DataTypes.STRING
+    valor: DataTypes.FLOAT,
+    formaPagamento: DataTypes.STRING,
+    nome: DataTypes.STRING,
+    observacao: DataTypes.STRING,
+    cpf: {
+      type: DataTypes.STRING,
+      validate:{
+      len: 11,
+      msg: "Coloca um cpf de verdade.",
+      allowNull: false,
+    }
+    }
   }, {
     sequelize,
     modelName: 'Pedidos',

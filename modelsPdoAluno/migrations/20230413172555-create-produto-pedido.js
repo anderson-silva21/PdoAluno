@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       quantidade: {
-        type: Sequelize.NUMBER
+        type: Sequelize.INTEGER
       },
       id_Pedido: {
         type: Sequelize.INTEGER
