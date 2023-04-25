@@ -20,7 +20,5 @@ class ItemRelatorio extends Model {
       sequelize,
       modelName: 'ItemRelatorio',
     });
-
+    return ItemRelatorio;
 };
-
-module.exports = ItemRelatorio;

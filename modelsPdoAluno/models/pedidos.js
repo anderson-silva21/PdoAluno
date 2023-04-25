@@ -23,10 +23,10 @@ module.exports = (sequelize, DataTypes) => {
     cpf: {
       type: DataTypes.STRING,
       validate:{
-      len: 11,
-      msg: "Coloca um cpf de verdade.",
-      allowNull: false,
-    }
+        len: 11,
+        msg: "Coloca um cpf de verdade.",
+        allowNull: false,
+     }
     }
   }, {
     sequelize,

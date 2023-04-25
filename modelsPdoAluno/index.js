@@ -1,6 +1,16 @@
 const express = require('express');
+const AdminJS = require("adminjs");
+const AdminJSExpress = require("@adminjs/express");
+const AdminJSSequelize = require("@adminjs/sequelize");
+
 const app = express();
 const models = require('./models');
+const bodyParser = require('body-parser');
+const { default: adminjs, Router } = require('adminjs');
+
+// Registrar o adapter Sequelize para o AdminJS
+AdminJS.registerAdapter(AdminJSSequelize);
+
 
 models.sequelize.sync().then(function () {
     console.log("A base de dados foi sincronizada!")
@@ -11,6 +21,24 @@ models.sequelize.sync().then(function () {
 app.get('/', function (req, res){
     res.send("Seja bem vindo ao P do Aluno");
 });*/
+
+const adminJs = new AdminJS({
+    databases: [models.sequelize],
+    resources: [
+    models.Pedidos,
+    models.ProdutoPedido,
+    models.Relatorios,
+    models.ItemRelatorio,
+    models.Produtos,
+
+    //models.Receitas,
+    ],
+    rootPath: '/admin',
+   });
+// Rota AdminJS
+const router = AdminJSExpress.buildRouter(adminJs);
+app.use(bodyParser.json({type: 'application/json'}));
+app.use(adminJs.options.rootPath, router);
 
 app.listen(8000, function(){
     console.log("Express server iniciado!");

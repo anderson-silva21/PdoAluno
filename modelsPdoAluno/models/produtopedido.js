@@ -22,8 +22,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   ProdutoPedido.init({
     quantidade: DataTypes.INTEGER,
-    //id_Pedido: DataTypes.INTEGER,
-    //id_Produto: DataTypes.INTEGER
+    id_Pedido: DataTypes.INTEGER,
+    id_Produto: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'ProdutoPedido',
