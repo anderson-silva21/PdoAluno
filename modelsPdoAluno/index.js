@@ -8,6 +8,10 @@ const models = require('./models');
 const bodyParser = require('body-parser');
 const { default: adminjs, Router } = require('adminjs');
 
+const { createPedido } = require("./routes/pedidos");
+const { createProduto, getProduto } = require("./routes/produtos");
+const { getRelatorio, createRelatorio } = require("./routes/relatorio");
+
 // Registrar o adapter Sequelize para o AdminJS
 AdminJS.registerAdapter(AdminJSSequelize);
 
@@ -56,3 +60,11 @@ app.get('/pedidos/:id', async function(req, res){
     }
     res.send("<pre>" + JSON.stringify(pedidos, undefined, 4) + "<pre>");
 });
+
+app.post('/produtos', createProduto);
+app.get('/produtos/:id', getProduto);
+
+app.post('/pedidos', createPedido);
+
+app.post('/relatorio', createRelatorio);
+app.get('relatorio/:id', getRelatorio);

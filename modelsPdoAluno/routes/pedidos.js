@@ -2,19 +2,20 @@ const { sequelize } = require("../models");
 const models = require("../models");
 
 async function createPedido(req,res){
-    const{data, valor, formaPagamento, nome, observacao} = req.body;
+    const{data, valor, formaPagamento, nome, observacao, cpf} = req.body;
     try{
         const produto = await models.Produtos.findByPk(req.params.id);
         if(!produto){
             return res.status(404);
         }
 
-        const pedido = await models.ProdutoPedido.create({
-            dataPedido: data,
-            valorPedido: valor,
-            formaPagamentoPedido: formaPagamento,
-            nomePedido: nome,
-            observacaoPedido: observacao,
+        const pedido = await models.Pedidos.create({
+            data: data,
+            valor: valor,
+            formaPagamento: formaPagamento,
+            nome: nome,
+            observacao: observacao,
+            cpf: cpf,
         });
 
         return  res.json(pedido);
