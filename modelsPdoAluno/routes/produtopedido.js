@@ -15,7 +15,7 @@ async function createPedido(req,res){
             formaPagamentoPedido: formaPagamento,
             nomePedido: nome,
             observacaoPedido: observacao,
-        })
+        });
 
         return  res.json(pedido);
     }catch(error){
